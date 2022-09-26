@@ -7,6 +7,7 @@ var pokemon_fire = new Pokemon('Charmander', ['firebolt', 'paralyzed'], 'fire');
 var pokemon_water = new Pokemon('Squirtle', ['Aqua Jet', 'Aqua Tail', 'Water Pulse'], 'water');
 var pokemon_grass = new Pokemon('Bulbasaur', ['Vine Whip', 'Tackle'], 'grass');
 
+
 define_test(
     'Test normal moves', () => {
         AssertEqual(pokemon_fire.getAttackDamageWrtType(pokemon_fire),
@@ -17,7 +18,6 @@ define_test(
             100, 'pokemon_grass attacks grass damage should be 100');
     }
 )
-
 
 /*
 define_test(
@@ -45,7 +45,6 @@ define_test(
 )
 */
 
-
 /*
 define_test('Testing Attack name of Pokemon', () => {
     assertThrowsError(() => pokemon_fire.attack('Tackle', pokemon_water), `${pokemon_fire.name} doesnot know how to do`
@@ -53,11 +52,12 @@ define_test('Testing Attack name of Pokemon', () => {
 })
 */
 
-define_test('Testing Attack name of Pokemon', () => {
-    var pokemon_ice = new Pokemon('Squirtles', ['Aqua Jet', 'Aqua Tail', 'Water Pulse'], 'ice');
+define_test('Testing type of Pokemon', () => {
+    var pokemon_ice = new Pokemon('Squirtles', ['Aqua Jet', 'Aqua Tail', 'Water Pulse'], 'water');
     assertThrowsError(() => pokemon_ice.attack('Tackle', pokemon_water), `Invalid Pokemon type `
         , 'Must throw error')
 })
+
 
 /*
 //Test for missed attacks
@@ -89,7 +89,6 @@ define_test('Testing Critical Function', () => {
     AssertEqual(damage, 50 * 2, 'Damage should be 100');
     AssertEqual(miss, false, 'Should be  missed attack');
 
-
     /*
     //normal  attacks for critical attacks
 
@@ -115,9 +114,6 @@ define_test('Testing Critical Function', () => {
     */
 
     restoreFn();
-
-
-
 
 })
 runTests();
